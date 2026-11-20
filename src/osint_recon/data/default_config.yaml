@@ -1,0 +1,57 @@
+# osint-recon — default configuration (bundled with the package).
+#
+# Copy to ~/.config/osint-recon/config.yaml (or pass --config) and change only
+# what you need: your file is merged over these defaults ("sources" by name).
+
+# Where reports (.md / .json) and the log file are written.
+output_dir: reports
+log_level: INFO
+
+# Domains you are AUTHORISED to probe actively (crawl the website, resolve DNS,
+# download documents). Subdomains are included. Passive sources (third-party
+# APIs) do not touch the target and run for any domain.
+scope: []
+
+# YOUR OWN email addresses. Only these are ever checked one by one against Have
+# I Been Pwned (command: osint-recon footprint). Emails found during a domain
+# scan are never looked up individually.
+owned_emails: []
+
+# API keys. Prefer environment variables, which take precedence and keep keys
+# out of files:  OSINT_RECON_HUNTER_KEY, OSINT_RECON_HIBP_KEY, OSINT_RECON_OTX_KEY
+api_keys:
+  hunter: ""
+  hibp: ""
+  otx: ""
+
+http:
+  timeout: 20          # seconds per request
+  max_retries: 3       # on 429 / 5xx / network errors, with exponential backoff
+  max_retry_wait: 120  # never wait longer than this for a Retry-After
+  # {version} is replaced. Identifies the tool honestly; contains no personal data.
+  user_agent: "osint-recon/{version} (+https://github.com/SPROMbash/osint-recon)"
+
+# Per-source switches and rate limits. min_interval = minimum seconds between two
+# requests to that source; concurrency = simultaneous requests. Defaults follow
+# each service's published limits / fair use.
+sources:
+  crtsh:        {enabled: true, min_interval: 2.0, concurrency: 1}
+  hackertarget: {enabled: true, min_interval: 2.0, concurrency: 1}  # free: 50 queries/day
+  otx:          {enabled: true, min_interval: 1.0, concurrency: 1}
+  hunter:       {enabled: true, min_interval: 1.0, concurrency: 1}  # free: 25 searches/month
+  hibp:         {enabled: true, min_interval: 6.5, concurrency: 1}  # Pwned 1 plan: 10 req/min
+  website:      {enabled: true, min_interval: 0.5, concurrency: 2}
+  documents:    {enabled: true, min_interval: 0.5, concurrency: 2}
+  dns:          {enabled: true, min_interval: 0.0, concurrency: 20}
+
+crawl:
+  max_pages: 30          # HTML pages fetched from the target website
+  max_depth: 2           # link depth from the home page
+  max_documents: 20      # public documents downloaded for metadata
+  max_document_mb: 15    # larger documents are skipped
+
+dns:
+  max_hosts: 500         # resolve at most this many subdomains
+
+hunter:
+  max_results: 50        # emails requested from Hunter (free plan: 10 per request)

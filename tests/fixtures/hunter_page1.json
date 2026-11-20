@@ -1,0 +1,64 @@
+{
+  "data": {
+    "domain": "example.com",
+    "disposable": false,
+    "webmail": false,
+    "accept_all": false,
+    "pattern": "{first}.{last}",
+    "organization": "Example Corp",
+    "emails": [
+      {
+        "value": "jane.smith@example.com",
+        "type": "personal",
+        "confidence": 94,
+        "sources": [{"domain": "example.com", "uri": "https://example.com/team", "extracted_on": "2026-03-01", "last_seen_on": "2026-10-01", "still_on_page": true}],
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "position": "Chief Technology Officer",
+        "seniority": "executive",
+        "department": "it",
+        "linkedin": null,
+        "twitter": null,
+        "phone_number": null,
+        "verification": {"date": "2026-10-02", "status": "valid"}
+      },
+      {
+        "value": "info@example.com",
+        "type": "generic",
+        "confidence": 91,
+        "sources": [],
+        "first_name": null,
+        "last_name": null,
+        "position": null,
+        "seniority": null,
+        "department": null,
+        "linkedin": null,
+        "twitter": null,
+        "phone_number": null,
+        "verification": null
+      },
+      {
+        "value": "someone@partner-agency.com",
+        "type": "personal",
+        "confidence": 40,
+        "sources": [],
+        "first_name": "Other",
+        "last_name": "Person",
+        "position": "Account manager",
+        "seniority": null,
+        "department": null,
+        "linkedin": null,
+        "twitter": null,
+        "phone_number": null,
+        "verification": null
+      }
+    ],
+    "linked_domains": []
+  },
+  "meta": {
+    "results": 4,
+    "limit": 3,
+    "offset": 0,
+    "params": {"domain": "example.com", "company": null, "type": null, "seniority": null, "department": null}
+  }
+}

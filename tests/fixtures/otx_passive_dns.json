@@ -1,0 +1,46 @@
+{
+  "passive_dns": [
+    {
+      "address": "198.51.100.20",
+      "first": "2025-01-10T12:00:00",
+      "last": "2026-10-01T08:30:00",
+      "hostname": "api.example.com",
+      "record_type": "A",
+      "indicator_link": "/indicator/hostname/api.example.com",
+      "flag_url": "assets/images/flags/us.png",
+      "flag_title": "United States",
+      "asset_type": "hostname",
+      "asn": "AS64500 Example Networks"
+    },
+    {
+      "address": "2001:db8::10",
+      "first": "2025-03-01T00:00:00",
+      "last": "2026-09-15T00:00:00",
+      "hostname": "api.example.com",
+      "record_type": "AAAA",
+      "indicator_link": "/indicator/hostname/api.example.com",
+      "asset_type": "hostname",
+      "asn": "AS64500 Example Networks"
+    },
+    {
+      "address": "ghs.googlehosted.com",
+      "first": "2024-02-02T00:00:00",
+      "last": "2026-07-07T00:00:00",
+      "hostname": "blog.example.com",
+      "record_type": "CNAME",
+      "indicator_link": "/indicator/hostname/blog.example.com",
+      "asset_type": "hostname",
+      "asn": null
+    },
+    {
+      "address": "203.0.113.5",
+      "first": "2024-01-01T00:00:00",
+      "last": "2024-06-01T00:00:00",
+      "hostname": "example.com.attacker.net",
+      "record_type": "A",
+      "asset_type": "hostname",
+      "asn": null
+    }
+  ],
+  "count": 4
+}
